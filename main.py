@@ -1,8 +1,8 @@
-
 import sys
 from PyQt5 import QtWidgets
 import design
 import sqlite3
+
 
 class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def __init__(self):
@@ -17,8 +17,11 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         cursor.execute("SELECT Name FROM Artist ORDER BY Name LIMIT 3")
         result = cursor.fetchall()
 
-        for item in list(result):
-            self.listView.additem(item)
+        try:
+            for item in result:
+                self.listView.additem(item)
+        except:
+            print('УПС')
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
