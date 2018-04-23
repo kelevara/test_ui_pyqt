@@ -12,16 +12,13 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
 
     def bd_select(self):
         self.listView.clear()
-        connect = sqlite3.connect('Chinook_Sqlite.sqlite')
+        '''connect = sqlite3.connect('Chinook_Sqlite.sqlite')
         cursor = connect.cursor()
         cursor.execute("SELECT Name FROM Artist ORDER BY Name LIMIT 3")
         result = cursor.fetchall()
-
-        try:
-            for item in result:
-                self.listView.additem(item)
-        except:
-            print('УПС')
+        '''
+        result = ['rfr', 'rcg', '1212', 13]
+        self.listView.addItem('sdgfsg')
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
